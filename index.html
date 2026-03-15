@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 4 – We Improve Our Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7c3aed;
+    --purple-light: #ede9fe;
+    --orange: #f97316;
+    --orange-light: #fff7ed;
+    --green: #16a34a;
+    --green-light: #dcfce7;
+    --blue: #2563eb;
+    --blue-light: #dbeafe;
+    --pink: #db2777;
+    --pink-light: #fce7f3;
+    --yellow: #eab308;
+    --yellow-light: #fef9c3;
+    --red: #dc2626;
+    --bg: #f5f3ff;
+    --card: #ffffff;
+    --text: #1e1b4b;
+    --muted: #6b7280;
+    --radius: 18px;
+    --shadow: 0 4px 24px rgba(124,58,237,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, var(--purple) 0%, #a855f7 60%, var(--orange) 100%);
+    padding: 28px 24px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .header-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .header-sub {
+    color: rgba(255,255,255,0.88);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 4px;
+    position: relative;
+  }
+
+  /* LANG TOGGLE */
+  .lang-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    background: white;
+    border-bottom: 2px solid var(--purple-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(124,58,237,0.08);
+  }
+  .lang-btn {
+    padding: 7px 22px;
+    border-radius: 50px;
+    border: 2px solid var(--purple);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    color: var(--purple);
+  }
+  .lang-btn.active {
+    background: var(--purple);
+    color: white;
+  }
+
+  /* SCORE BAR */
+  .score-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 20px;
+    background: var(--yellow-light);
+    border-bottom: 2px solid #fde68a;
+    flex-wrap: wrap;
+  }
+  .score-display {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stars-display { font-size: 1.3rem; letter-spacing: 2px; }
+  .reset-btn {
+    padding: 5px 16px;
+    border-radius: 50px;
+    border: 2px solid var(--orange);
+    background: white;
+    color: var(--orange);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { background: var(--orange); color: white; }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 16px 20px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: white;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 9px 18px;
+    border-radius: 14px 14px 0 0;
+    border: 2px solid transparent;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    background: var(--purple-light);
+    color: var(--purple);
+  }
+  .tab-btn.active {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+  }
+  .tab-btn:hover:not(.active) { background: #ddd6fe; }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  /* SECTION PANELS */
+  .section-panel {
+    display: none;
+  }
+  .section-panel.active { display: block; }
+
+  /* TOPIC INTRO CARD */
+  .topic-intro {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow);
+    border-left: 6px solid var(--purple);
+  }
+  .topic-intro h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    color: var(--purple);
+    margin-bottom: 8px;
+  }
+  .topic-intro p { font-size: 0.97rem; line-height: 1.6; color: #374151; }
+
+  /* ACTIVITY CARD */
+  .activity-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .activity-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .activity-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-quiz { background: var(--blue-light); color: var(--blue); }
+  .badge-drag { background: var(--green-light); color: var(--green); }
+  .badge-fill { background: var(--orange-light); color: var(--orange); }
+  .badge-word { background: var(--pink-light); color: var(--pink); }
+
+  /* QUIZ */
+  .quiz-question { font-weight: 700; font-size: 1rem; margin-bottom: 12px; color: var(--text); }
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  @media(max-width:500px) { .quiz-options { grid-template-columns: 1fr; } }
+  .quiz-opt {
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 2.5px solid #e5e7eb;
+    background: #f9fafb;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.93rem;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-align: left;
+  }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-light); }
+  .quiz-opt.correct { border-color: var(--green); background: var(--green-light); color: var(--green); }
+  .quiz-opt.wrong { border-color: var(--red); background: #fee2e2; color: var(--red); }
+  .quiz-opt:disabled { cursor: default; }
+  .quiz-feedback {
+    font-weight: 700;
+    font-size: 0.95rem;
+    min-height: 22px;
+    margin-bottom: 8px;
+  }
+  .quiz-feedback.ok { color: var(--green); }
+  .quiz-feedback.ko { color: var(--red); }
+  .next-btn {
+    padding: 8px 22px;
+    border-radius: 50px;
+    border: none;
+    background: var(--purple);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none;
+    transition: background 0.2s;
+  }
+  .next-btn:hover { background: #6d28d9; }
+  .next-btn.show { display: inline-block; }
+
+  /* DRAG & DROP */
+  .drag-instruction { font-size: 0.92rem; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+  .drag-items { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 18px; }
+  .drag-chip {
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: var(--purple);
+    color: white;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.15s, opacity 0.15s;
+    border: 2px solid transparent;
+  }
+  .drag-chip:active { cursor: grabbing; transform: scale(1.06); }
+  .drag-chip.used { opacity: 0.35; cursor: not-allowed; }
+  .drag-zones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:480px) { .drag-zones { grid-template-columns: 1fr; } }
+  .drag-zone {
+    min-height: 70px;
+    border: 2.5px dashed #c4b5fd;
+    border-radius: 14px;
+    padding: 12px 14px;
+    background: var(--purple-light);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .drag-zone.over { border-color: var(--purple); background: #ddd6fe; }
+  .drag-zone.correct-zone { border-color: var(--green); background: var(--green-light); }
+  .drag-zone.wrong-zone { border-color: var(--red); background: #fee2e2; }
+  .drag-zone-label {
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--purple);
+    margin-bottom: 8px;
+  }
+  .drag-zone-content { display: flex; flex-wrap: wrap; gap: 6px; min-height: 28px; }
+  .dropped-chip {
+    padding: 5px 13px;
+    border-radius: 50px;
+    background: var(--purple);
+    color: white;
+    font-weight: 700;
+    font-size: 0.83rem;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .dropped-chip .remove { font-size: 1rem; line-height: 1; }
+  .check-btn {
+    margin-top: 14px;
+    padding: 9px 24px;
+    border-radius: 50px;
+    border: none;
+    background: var(--green);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.93rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .check-btn:hover { background: #15803d; }
+
+  /* FILL IN THE BLANKS */
+  .fill-sentence {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2.2;
+    margin-bottom: 14px;
+  }
+  .fill-blank {
+    display: inline-block;
+    min-width: 100px;
+    border: none;
+    border-bottom: 3px solid var(--purple);
+    background: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 2px 8px;
+    color: var(--text);
+    outline: none;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .fill-blank:focus { border-color: var(--orange); }
+  .fill-blank.correct-fill { border-color: var(--green); color: var(--green); background: var(--green-light); border-radius: 6px; }
+  .fill-blank.wrong-fill { border-color: var(--red); color: var(--red); background: #fee2e2; border-radius: 6px; }
+
+  /* WORD SEARCH */
+  .word-search-wrap { overflow-x: auto; }
+  .word-grid {
+    display: inline-grid;
+    gap: 3px;
+    margin-bottom: 16px;
+  }
+  .ws-cell {
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    border-radius: 7px;
+    cursor: pointer;
+    user-select: none;
+    background: var(--purple-light);
+    color: var(--purple);
+    transition: background 0.15s;
+    border: 2px solid transparent;
+  }
+  .ws-cell:hover { background: #ddd6fe; }
+  .ws-cell.selected { background: var(--yellow); color: var(--text); border-color: var(--orange); }
+  .ws-cell.found { background: var(--green); color: white; border-color: var(--green); }
+  .ws-words { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .ws-word {
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 2px solid var(--purple);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--purple);
+    background: white;
+  }
+  .ws-word.found-word { background: var(--green); border-color: var(--green); color: white; text-decoration: line-through; }
+
+  /* FEEDBACK POPUP */
+  .feedback-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background: white;
+    border-radius: 24px;
+    padding: 32px 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .feedback-popup.show {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .feedback-popup .emoji { font-size: 3rem; margin-bottom: 8px; }
+  .feedback-popup .msg { font-family: 'Fredoka One', cursive; font-size: 1.5rem; }
+  .feedback-popup .pts { font-size: 1.1rem; font-weight: 700; color: var(--orange); margin-top: 6px; }
+
+  /* PROGRESS */
+  .progress-wrap { margin-bottom: 10px; }
+  .progress-label { font-size: 0.82rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; }
+  .progress-bar { height: 8px; background: #e5e7eb; border-radius: 50px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--orange)); border-radius: 50px; transition: width 0.4s; }
+
+  /* CONGRATS */
+  .congrats-card {
+    background: linear-gradient(135deg, var(--purple), #a855f7);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    display: none;
+  }
+  .congrats-card.show { display: block; }
+  .congrats-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.8rem; margin-bottom: 8px; }
+
+  /* RESPONSIVE */
+  @media(max-width:600px) {
+    .activity-card { padding: 16px; }
+    .quiz-options { grid-template-columns: 1fr; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .bounce { animation: bounce 0.6s ease; }
+  @keyframes star-pop {
+    0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+    60% { transform: scale(1.3) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+  }
+  .star-pop { animation: star-pop 0.4s ease forwards; }
+
+  .section-emoji { font-size: 2rem; margin-right: 8px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- FEEDBACK POPUP -->
+<div class="feedback-popup" id="feedbackPopup">
+  <div class="emoji" id="feedbackEmoji">🌟</div>
+  <div class="msg" id="feedbackMsg">Correct!</div>
+  <div class="pts" id="feedbackPts">+10 points</div>
+</div>
+
+<header>
+  <div class="header-title">🏘️ <span id="hTitle">We Improve Our Community</span></div>
+  <div class="header-sub" id="hSub">Unit 4 · Social Science · 3rd Grade</div>
+</header>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+</div>
+
+<div class="score-bar">
+  <div class="score-display">⭐ <span id="totalScore">0</span> <span id="ptsLabel">points</span></div>
+  <div class="stars-display" id="starsDisplay">☆☆☆☆☆</div>
+  <button class="reset-btn" onclick="resetAll()" id="resetBtn">↺ Reset</button>
+</div>
+
+<div class="nav-tabs" id="navTabs">
+  <button class="tab-btn active" onclick="showSection(0)">🏡 <span class="tl" data-en="Villages" data-es="Pueblos">Villages</span></button>
+  <button class="tab-btn" onclick="showSection(1)">🏙️ <span class="tl" data-en="Towns & Cities" data-es="Ciudades">Towns & Cities</span></button>
+  <button class="tab-btn" onclick="showSection(2)">🏛️ <span class="tl" data-en="Local Council" data-es="Ayuntamiento">Local Council</span></button>
+  <button class="tab-btn" onclick="showSection(3)">🚌 <span class="tl" data-en="Local Services" data-es="Servicios">Local Services</span></button>
+  <button class="tab-btn" onclick="showSection(4)">💰 <span class="tl" data-en="Taxes" data-es="Impuestos">Taxes</span></button>
+  <button class="tab-btn" onclick="showSection(5)">🔤 <span class="tl" data-en="Word Search" data-es="Sopa de letras">Word Search</span></button>
+</div>
+
+<main>
+
+<!-- =================== SECTION 0: VILLAGES =================== -->
+<div class="section-panel active" id="sec0">
+
+  <div class="topic-intro">
+    <h2>🏡 <span class="tl" data-en="What are villages like?" data-es="¿Cómo son los pueblos?">What are villages like?</span></h2>
+    <p class="tl"
+      data-en="People live in settlements with houses, streets and other buildings. The number of people is the <b>population</b>. Villages are small settlements with a small population. In the centre there is a <b>main square</b> with a <b>town hall</b> and a <b>church</b>. Streets are short and narrow. Buildings are low."
+      data-es="Las personas viven en núcleos de población con casas, calles y edificios. El número de personas es la <b>población</b>. Los pueblos son pequeños núcleos con poca población. En el centro hay una <b>plaza mayor</b> con un <b>ayuntamiento</b> y una <b>iglesia</b>. Las calles son cortas y estrechas. Los edificios son bajos.">
+      People live in settlements with houses, streets and other buildings. The number of people is the <b>population</b>. Villages are small settlements with a small population. In the centre there is a <b>main square</b> with a <b>town hall</b> and a <b>church</b>. Streets are short and narrow. Buildings are low.
+    </p>
+  </div>
+
+  <!-- QUIZ 1 -->
+  <div class="activity-card" id="quiz_v1">
+    <div class="activity-title">
+      <span class="activity-badge badge-quiz">Quiz</span>
+      <span class="tl" data-en="Question 1 of 4" data-es="Pregunta 1 de 4">Question 1 of 4</span>
+    </div>
+    <div class="progress-wrap"><div class="progress-label"><span class="tl" data-en="Progress" data-es="Progreso">Progress</span></div><div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div></div>
+    <div id="v_quiz_container"></div>
+  </div>
+
+  <!-- DRAG & DROP villages -->
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-drag">Drag & Drop</span>
+      <span class="tl" data-en="Sort: type of village" data-es="Clasifica: tipo de pueblo">Sort: type of village</span>
+    </div>
+    <p class="drag-instruction tl" data-en="Drag each feature to the correct type of village." data-es="Arrastra cada característica al tipo de pueblo correcto.">Drag each feature to the correct type of village.</p>
+    <div class="drag-items" id="vDragItems"></div>
+    <div class="drag-zones" id="vDragZones"></div>
+    <button class="check-btn" onclick="checkDrag('v')" id="vCheckBtn"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="vDragFeedback"></div>
+  </div>
+
+  <!-- FILL BLANKS villages -->
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-fill">Fill in the blanks</span>
+      <span class="tl" data-en="Complete the sentences" data-es="Completa las frases">Complete the sentences</span>
+    </div>
+    <div id="vFillContainer"></div>
+    <button class="check-btn" onclick="checkFill('v')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="vFillFeedback"></div>
+  </div>
+
+</div>
+
+<!-- =================== SECTION 1: TOWNS & CITIES =================== -->
+<div class="section-panel" id="sec1">
+
+  <div class="topic-intro">
+    <h2>🏙️ <span class="tl" data-en="What are towns and cities like?" data-es="¿Cómo son los pueblos grandes y las ciudades?">What are towns and cities like?</span></h2>
+    <p class="tl"
+      data-en="Towns and cities are large settlements with a <b>large population</b>. Most cities have an old part called the <b>historic centre</b> (narrow streets, low buildings, monuments), a <b>modern district</b> (wide streets, tall buildings, offices) and <b>suburbs</b> (residential areas away from the centre with houses and factories)."
+      data-es="Los pueblos grandes y las ciudades son núcleos de población con mucha gente. Tienen un <b>centro histórico</b> (calles estrechas, edificios bajos, monumentos), un <b>barrio moderno</b> (calles anchas, edificios altos, oficinas) y <b>barrios periféricos</b> (zonas residenciales alejadas del centro).">
+      Towns and cities are large settlements with a <b>large population</b>. Most cities have an old part called the <b>historic centre</b> (narrow streets, low buildings, monuments), a <b>modern district</b> (wide streets, tall buildings, offices) and <b>suburbs</b> (residential areas away from the centre with houses and factories).
+    </p>
+  </div>
+
+  <div class="activity-card" id="quiz_c1">
+    <div class="activity-title">
+      <span class="activity-badge badge-quiz">Quiz</span>
+      <span class="tl" data-en="Cities Quiz" data-es="Quiz sobre ciudades">Cities Quiz</span>
+    </div>
+    <div id="c_quiz_container"></div>
+  </div>
+
+  <!-- DRAG cities parts -->
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-drag">Drag & Drop</span>
+      <span class="tl" data-en="Match features to city areas" data-es="Relaciona características con zonas de la ciudad">Match features to city areas</span>
+    </div>
+    <p class="drag-instruction tl" data-en="Drag each description to the correct part of the city." data-es="Arrastra cada descripción a la parte correcta de la ciudad.">Drag each description to the correct part of the city.</p>
+    <div class="drag-items" id="cDragItems"></div>
+    <div class="drag-zones" id="cDragZones"></div>
+    <button class="check-btn" onclick="checkDrag('c')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="cDragFeedback"></div>
+  </div>
+
+  <!-- FILL cities -->
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-fill">Fill in the blanks</span>
+      <span class="tl" data-en="Advantages & Disadvantages" data-es="Ventajas e inconvenientes">Advantages & Disadvantages</span>
+    </div>
+    <div id="cFillContainer"></div>
+    <button class="check-btn" onclick="checkFill('c')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="cFillFeedback"></div>
+  </div>
+
+</div>
+
+<!-- =================== SECTION 2: LOCAL COUNCIL =================== -->
+<div class="section-panel" id="sec2">
+
+  <div class="topic-intro">
+    <h2>🏛️ <span class="tl" data-en="What is the local council?" data-es="¿Qué es el ayuntamiento?">What is the local council?</span></h2>
+    <p class="tl"
+      data-en="Every village, town or city is a <b>municipality</b>. It has a <b>local council</b> that governs it. The workers are called <b>councillors</b>. The head of the council is the <b>mayor</b>. They work in the <b>town hall</b>. Citizens can vote every 4 years in <b>elections</b>."
+      data-es="Cada pueblo o ciudad es un <b>municipio</b>. Tiene un <b>ayuntamiento</b> que lo gobierna. Los trabajadores se llaman <b>concejales</b>. El jefe del ayuntamiento es el <b>alcalde/alcaldesa</b>. Trabajan en la <b>casa consistorial</b>. Los ciudadanos pueden votar cada 4 años en las <b>elecciones</b>.">
+      Every village, town or city is a <b>municipality</b>. It has a <b>local council</b> that governs it. The workers are called <b>councillors</b>. The head of the council is the <b>mayor</b>. They work in the <b>town hall</b>. Citizens can vote every 4 years in <b>elections</b>.
+    </p>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-quiz">Quiz</span>
+      <span class="tl" data-en="Local Council Quiz" data-es="Quiz sobre el ayuntamiento">Local Council Quiz</span>
+    </div>
+    <div id="lc_quiz_container"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-drag">Drag & Drop</span>
+      <span class="tl" data-en="Who does what?" data-es="¿Quién hace qué?">Who does what?</span>
+    </div>
+    <p class="drag-instruction tl" data-en="Match each role or action to the correct term." data-es="Relaciona cada función con el término correcto.">Match each role or action to the correct term.</p>
+    <div class="drag-items" id="lcDragItems"></div>
+    <div class="drag-zones" id="lcDragZones"></div>
+    <button class="check-btn" onclick="checkDrag('lc')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="lcDragFeedback"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-fill">Fill in the blanks</span>
+      <span class="tl" data-en="Complete the definitions" data-es="Completa las definiciones">Complete the definitions</span>
+    </div>
+    <div id="lcFillContainer"></div>
+    <button class="check-btn" onclick="checkFill('lc')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="lcFillFeedback"></div>
+  </div>
+
+</div>
+
+<!-- =================== SECTION 3: LOCAL SERVICES =================== -->
+<div class="section-panel" id="sec3">
+
+  <div class="topic-intro">
+    <h2>🚌 <span class="tl" data-en="What are local services?" data-es="¿Qué son los servicios locales?">What are local services?</span></h2>
+    <p class="tl"
+      data-en="The local council organises <b>local services</b> — services that citizens use in their municipality. There are four main types: <b>police & fire</b> (keep people safe), <b>transport</b> (public buses, etc.), <b>cultural & leisure</b> (museums, sports centres) and <b>waste management & sanitation</b> (keep city clean, clean water)."
+      data-es="El ayuntamiento organiza los <b>servicios locales</b> — los servicios que los ciudadanos usan en su municipio. Hay cuatro tipos principales: <b>policía y bomberos</b> (seguridad), <b>transporte</b> (autobuses, etc.), <b>cultura y ocio</b> (museos, polideportivos) y <b>gestión de residuos y saneamiento</b> (ciudad limpia, agua potable).">
+      The local council organises <b>local services</b> — services that citizens use in their municipality. There are four main types: <b>police & fire</b> (keep people safe), <b>transport</b> (public buses, etc.), <b>cultural & leisure</b> (museums, sports centres) and <b>waste management & sanitation</b> (keep city clean, clean water).
+    </p>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-quiz">Quiz</span>
+      <span class="tl" data-en="Local Services Quiz" data-es="Quiz sobre servicios">Local Services Quiz</span>
+    </div>
+    <div id="ls_quiz_container"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-drag">Drag & Drop</span>
+      <span class="tl" data-en="Which service does each action?" data-es="¿Qué servicio realiza cada acción?">Which service does each action?</span>
+    </div>
+    <p class="drag-instruction tl" data-en="Drag each action to the correct local service." data-es="Arrastra cada acción al servicio local correcto.">Drag each action to the correct local service.</p>
+    <div class="drag-items" id="lsDragItems"></div>
+    <div class="drag-zones" id="lsDragZones"></div>
+    <button class="check-btn" onclick="checkDrag('ls')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="lsDragFeedback"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-fill">Fill in the blanks</span>
+      <span class="tl" data-en="Complete the sentences about services" data-es="Completa las frases sobre servicios">Complete the sentences about services</span>
+    </div>
+    <div id="lsFillContainer"></div>
+    <button class="check-btn" onclick="checkFill('ls')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="lsFillFeedback"></div>
+  </div>
+
+</div>
+
+<!-- =================== SECTION 4: TAXES =================== -->
+<div class="section-panel" id="sec4">
+
+  <div class="topic-intro">
+    <h2>💰 <span class="tl" data-en="What are municipal taxes?" data-es="¿Qué son los impuestos municipales?">What are municipal taxes?</span></h2>
+    <p class="tl"
+      data-en="The local council collects <b>taxes</b> to pay for local services. Taxes are money that citizens have to pay to the government. <b>Property tax</b>: citizens who own houses pay this. The money is used to keep streets clean, maintain sewers, build parks. <b>Road tax</b>: citizens who own cars or vehicles pay this. The money builds and repairs roads, installs traffic signs."
+      data-es="El ayuntamiento recauda <b>impuestos</b> para pagar los servicios locales. Los impuestos son el dinero que los ciudadanos pagan al gobierno. <b>Impuesto sobre bienes inmuebles (IBI)</b>: lo pagan quienes tienen casas. El dinero sirve para limpiar calles, mantener alcantarillas y construir parques. <b>Impuesto sobre vehículos</b>: lo pagan los propietarios de coches. El dinero construye y repara carreteras e instala señales.">
+      The local council collects <b>taxes</b> to pay for local services. Taxes are money that citizens have to pay to the government. <b>Property tax</b>: citizens who own houses pay this. The money is used to keep streets clean, maintain sewers, build parks. <b>Road tax</b>: citizens who own cars or vehicles pay this. The money builds and repairs roads, installs traffic signs.
+    </p>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-quiz">Quiz</span>
+      <span class="tl" data-en="Taxes Quiz" data-es="Quiz sobre impuestos">Taxes Quiz</span>
+    </div>
+    <div id="tx_quiz_container"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-drag">Drag & Drop</span>
+      <span class="tl" data-en="What is each tax used for?" data-es="¿Para qué se usa cada impuesto?">What is each tax used for?</span>
+    </div>
+    <p class="drag-instruction tl" data-en="Drag each use to the correct tax type." data-es="Arrastra cada uso al tipo de impuesto correcto.">Drag each use to the correct tax type.</p>
+    <div class="drag-items" id="txDragItems"></div>
+    <div class="drag-zones" id="txDragZones"></div>
+    <button class="check-btn" onclick="checkDrag('tx')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="txDragFeedback"></div>
+  </div>
+
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-fill">Fill in the blanks</span>
+      <span class="tl" data-en="Taxes sentences" data-es="Frases sobre impuestos">Taxes sentences</span>
+    </div>
+    <div id="txFillContainer"></div>
+    <button class="check-btn" onclick="checkFill('tx')"><span class="tl" data-en="✓ Check" data-es="✓ Comprobar">✓ Check</span></button>
+    <div class="quiz-feedback" id="txFillFeedback"></div>
+  </div>
+
+</div>
+
+<!-- =================== SECTION 5: WORD SEARCH =================== -->
+<div class="section-panel" id="sec5">
+  <div class="topic-intro">
+    <h2>🔤 <span class="tl" data-en="Word Search" data-es="Sopa de letras">Word Search</span></h2>
+    <p class="tl" data-en="Find all the key words from Unit 4! Click the first letter, then click the last letter of each word." data-es="¡Encuentra todas las palabras clave de la Unidad 4! Haz clic en la primera letra y luego en la última letra de cada palabra.">Find all the key words from Unit 4! Click the first letter, then click the last letter of each word.</p>
+  </div>
+  <div class="activity-card">
+    <div class="activity-title">
+      <span class="activity-badge badge-word">Word Search</span>
+      <span class="tl" data-en="Key Vocabulary" data-es="Vocabulario clave">Key Vocabulary</span>
+    </div>
+    <div class="word-search-wrap">
+      <div class="word-grid" id="wordGrid"></div>
+    </div>
+    <div class="ws-words" id="wsWordList"></div>
+    <div class="quiz-feedback" id="wsFeedback" style="margin-top:12px"></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ===========================
+// STATE
+// ===========================
+let lang = 'en';
+let totalScore = 0;
+let dragState = {};
+let wsSelecting = false;
+let wsFirst = null;
+let wsFoundWords = new Set();
+
+// ===========================
+// CONTENT DATA
+// ===========================
+const quizData = {
+  v: [
+    {
+      en: "What is a village?",
+      es: "¿Qué es un pueblo?",
+      opts: {
+        en: ["A small settlement with small population","A big city with many people","A modern district","An industrial area"],
+        es: ["Un pequeño núcleo con poca población","Una gran ciudad con mucha gente","Un barrio moderno","Una zona industrial"]
+      },
+      ans: 0
+    },
+    {
+      en: "Where is the town hall in a village?",
+      es: "¿Dónde está el ayuntamiento en un pueblo?",
+      opts: {
+        en: ["In the main square","In the suburbs","In the modern district","Near the factory"],
+        es: ["En la plaza mayor","En los barrios periféricos","En el barrio moderno","Cerca de la fábrica"]
+      },
+      ans: 0
+    },
+    {
+      en: "What happens to small villages over time?",
+      es: "¿Qué pasa con los pueblos pequeños con el tiempo?",
+      opts: {
+        en: ["Young people leave and they get smaller","They become big cities","More hospitals are built","They always grow"],
+        es: ["Los jóvenes se van y se hacen más pequeños","Se convierten en grandes ciudades","Construyen más hospitales","Siempre crecen"]
+      },
+      ans: 0
+    },
+    {
+      en: "What kind of village has hotels and restaurants for tourists?",
+      es: "¿Qué tipo de pueblo tiene hoteles y restaurantes para turistas?",
+      opts: {
+        en: ["Tourist village","Industrial village","Small village","Abandoned village"],
+        es: ["Pueblo turístico","Pueblo industrial","Pueblo pequeño","Pueblo abandonado"]
+      },
+      ans: 0
+    }
+  ],
+  c: [
+    {
+      en: "What is the historic centre?",
+      es: "¿Qué es el centro histórico?",
+      opts: {
+        en: ["The old part of the city","A new residential area","The area with tall buildings","The suburbs"],
+        es: ["La parte antigua de la ciudad","Una nueva zona residencial","La zona con edificios altos","Los barrios periféricos"]
+      },
+      ans: 0
+    },
+    {
+      en: "Which is a DISADVANTAGE of city life?",
+      es: "¿Cuál es un INCONVENIENTE de vivir en la ciudad?",
+      opts: {
+        en: ["Traffic jams","Many hospitals","Many jobs","Cultural events"],
+        es: ["Atascos de tráfico","Muchos hospitales","Muchos trabajos","Eventos culturales"]
+      },
+      ans: 0
+    },
+    {
+      en: "The suburbs are...",
+      es: "Los barrios periféricos son...",
+      opts: {
+        en: ["Residential areas away from the centre","The old part of the city","Full of monuments and museums","The area around the main square"],
+        es: ["Zonas residenciales alejadas del centro","La parte antigua de la ciudad","Llenas de monumentos y museos","La zona alrededor de la plaza mayor"]
+      },
+      ans: 0
+    },
+    {
+      en: "What helps reduce traffic jams in cities?",
+      es: "¿Qué ayuda a reducir los atascos en las ciudades?",
+      opts: {
+        en: ["Using public transport","Having more cars","Building more suburbs","Closing museums"],
+        es: ["Usar el transporte público","Tener más coches","Construir más barrios periféricos","Cerrar los museos"]
+      },
+      ans: 0
+    }
+  ],
+  lc: [
+    {
+      en: "What is a municipality?",
+      es: "¿Qué es un municipio?",
+      opts: {
+        en: ["A village, town or city and its territory","Only the town hall building","The mayor's house","A type of local service"],
+        es: ["Un pueblo o ciudad y su territorio","Solo el edificio del ayuntamiento","La casa del alcalde","Un tipo de servicio local"]
+      },
+      ans: 0
+    },
+    {
+      en: "What is the head of the local council called?",
+      es: "¿Cómo se llama el jefe del ayuntamiento?",
+      opts: {
+        en: ["Mayor","Councillor","Citizen","Minister"],
+        es: ["Alcalde/Alcaldesa","Concejal","Ciudadano","Ministro"]
+      },
+      ans: 0
+    },
+    {
+      en: "How often do citizens vote for the local council?",
+      es: "¿Cada cuánto tiempo votan los ciudadanos para el ayuntamiento?",
+      opts: {
+        en: ["Every 4 years","Every year","Every 2 years","Every 6 years"],
+        es: ["Cada 4 años","Cada año","Cada 2 años","Cada 6 años"]
+      },
+      ans: 0
+    },
+    {
+      en: "Who can vote in local elections in Spain?",
+      es: "¿Quién puede votar en las elecciones locales en España?",
+      opts: {
+        en: ["People over 18 years old","All children","Only the mayor","People over 16"],
+        es: ["Personas mayores de 18 años","Todos los niños","Solo el alcalde","Personas mayores de 16 años"]
+      },
+      ans: 0
+    }
+  ],
+  ls: [
+    {
+      en: "Which service keeps people safe from fires?",
+      es: "¿Qué servicio protege a las personas de los incendios?",
+      opts: {
+        en: ["Fire service","Transport service","Cultural service","Sanitation service"],
+        es: ["Servicio de bomberos","Servicio de transporte","Servicio cultural","Servicio de saneamiento"]
+      },
+      ans: 0
+    },
+    {
+      en: "What does the waste management service do?",
+      es: "¿Qué hace el servicio de gestión de residuos?",
+      opts: {
+        en: ["Collects rubbish and keeps the city clean","Organises museum events","Runs bus routes","Repairs roads"],
+        es: ["Recoge la basura y mantiene la ciudad limpia","Organiza eventos en museos","Gestiona rutas de autobús","Repara carreteras"]
+      },
+      ans: 0
+    },
+    {
+      en: "Libraries, museums and sports centres are part of which service?",
+      es: "Las bibliotecas, museos y polideportivos son parte de qué servicio?",
+      opts: {
+        en: ["Cultural and leisure service","Transport service","Police service","Sanitation service"],
+        es: ["Servicio cultural y de ocio","Servicio de transporte","Servicio de policía","Servicio de saneamiento"]
+      },
+      ans: 0
+    },
+    {
+      en: "Who organises local services?",
+      es: "¿Quién organiza los servicios locales?",
+      opts: {
+        en: ["The local council","The national government","Private companies","The citizens alone"],
+        es: ["El ayuntamiento","El gobierno nacional","Empresas privadas","Los ciudadanos solos"]
+      },
+      ans: 0
+    }
+  ],
+  tx: [
+    {
+      en: "What are taxes?",
+      es: "¿Qué son los impuestos?",
+      opts: {
+        en: ["Money citizens pay to the government","Money the government gives to citizens","The price of local services","The salary of councillors"],
+        es: ["Dinero que los ciudadanos pagan al gobierno","Dinero que el gobierno da a los ciudadanos","El precio de los servicios locales","El salario de los concejales"]
+      },
+      ans: 0
+    },
+    {
+      en: "Who pays property tax?",
+      es: "¿Quién paga el impuesto sobre bienes inmuebles?",
+      opts: {
+        en: ["Citizens who own houses","Citizens who own cars","All children","Only the mayor"],
+        es: ["Ciudadanos que tienen casas","Ciudadanos que tienen coches","Todos los niños","Solo el alcalde"]
+      },
+      ans: 0
+    },
+    {
+      en: "What is road tax used for?",
+      es: "¿Para qué se usa el impuesto sobre vehículos?",
+      opts: {
+        en: ["Building and repairing roads","Building parks and sewers","Paying museum staff","Collecting rubbish"],
+        es: ["Construir y reparar carreteras","Construir parques y alcantarillas","Pagar al personal del museo","Recoger la basura"]
+      },
+      ans: 0
+    },
+    {
+      en: "Why are local services important?",
+      es: "¿Por qué son importantes los servicios locales?",
+      opts: {
+        en: ["They are for all citizens and improve life in the community","They only help rich people","They are optional and nobody uses them","They are managed by the national government"],
+        es: ["Son para todos los ciudadanos y mejoran la vida en comunidad","Solo ayudan a las personas ricas","Son opcionales y nadie los usa","Los gestiona el gobierno nacional"]
+      },
+      ans: 0
+    }
+  ]
+};
+
+const dragData = {
+  v: {
+    items: {
+      en: ["Hotels & restaurants","Mountain location","Factories & farms","Large population","Few services","Attracts tourists"],
+      es: ["Hoteles y restaurantes","Ubicación en la montaña","Fábricas y granjas","Mucha población","Pocos servicios","Atrae turistas"]
+    },
+    zones: {
+      en: ["Tourist village","Industrial village"],
+      es: ["Pueblo turístico","Pueblo industrial"]
+    },
+    answers: { 0:0, 1:0, 2:1, 3:1, 4:0, 5:0 }
+  },
+  c: {
+    items: {
+      en: ["Narrow streets","Wide streets","Monuments","Tall buildings","Houses & factories","Low buildings"],
+      es: ["Calles estrechas","Calles anchas","Monumentos","Edificios altos","Casas y fábricas","Edificios bajos"]
+    },
+    zones: {
+      en: ["Historic centre","Modern district"],
+      es: ["Centro histórico","Barrio moderno"]
+    },
+    answers: { 0:0, 1:1, 2:0, 3:1, 4:1, 5:0 }
+  },
+  lc: {
+    items: {
+      en: ["Organises the municipality","Head of the council","Works in the town hall","Elected every 4 years","Solves community problems","Represents all citizens"],
+      es: ["Organiza el municipio","Jefe del ayuntamiento","Trabaja en la casa consistorial","Elegido cada 4 años","Resuelve problemas de la comunidad","Representa a todos los ciudadanos"]
+    },
+    zones: {
+      en: ["Mayor","Local council"],
+      es: ["Alcalde/Alcaldesa","Ayuntamiento"]
+    },
+    answers: { 0:1, 1:0, 2:1, 3:0, 4:1, 5:1 }
+  },
+  ls: {
+    items: {
+      en: ["Collecting rubbish","Running bus routes","Putting out fires","Organising museum events","Providing clean water","Keeping streets safe"],
+      es: ["Recoger la basura","Gestionar rutas de autobús","Apagar incendios","Organizar eventos en museos","Proporcionar agua limpia","Mantener las calles seguras"]
+    },
+    zones: {
+      en: ["Police & Fire","Transport","Cultural & Leisure","Waste & Sanitation"],
+      es: ["Policía y Bomberos","Transporte","Cultural y Ocio","Residuos y Saneamiento"]
+    },
+    answers: { 0:3, 1:1, 2:0, 3:2, 4:3, 5:0 }
+  },
+  tx: {
+    items: {
+      en: ["Clean streets","New traffic signs","Build parks","Repair roads","Maintain sewers","Install road signs"],
+      es: ["Calles limpias","Nuevas señales de tráfico","Construir parques","Reparar carreteras","Mantener alcantarillas","Instalar señales de tráfico"]
+    },
+    zones: {
+      en: ["Property Tax","Road Tax"],
+      es: ["Impuesto sobre bienes inmuebles","Impuesto sobre vehículos"]
+    },
+    answers: { 0:0, 1:1, 2:0, 3:1, 4:0, 5:1 }
+  }
+};
+
+const fillData = {
+  v: {
+    sentences: {
+      en: [
+        { text: "Villages are ___ settlements with a small ___.", blanks: ["small","population"] },
+        { text: "In the centre of the village there is a main ___ with the town hall and the ___.", blanks: ["square","church"] },
+        { text: "The buildings in a village are ___ and one family lives in each ___.", blanks: ["low","house"] }
+      ],
+      es: [
+        { text: "Los pueblos son núcleos ___ con poca ___.", blanks: ["pequeños","población"] },
+        { text: "En el centro del pueblo hay una ___ mayor con el ayuntamiento y la ___.", blanks: ["plaza","iglesia"] },
+        { text: "Los edificios de los pueblos son ___ y cada ___ vive una familia.", blanks: ["bajos","casa"] }
+      ]
+    }
+  },
+  c: {
+    sentences: {
+      en: [
+        { text: "The ___ centre is the old part of the city with narrow streets and ___.", blanks: ["historic","monuments"] },
+        { text: "The modern ___ has wide streets and tall ___.", blanks: ["district","buildings"] },
+        { text: "Using public ___ helps to reduce traffic ___.", blanks: ["transport","jams"] }
+      ],
+      es: [
+        { text: "El centro ___ es la parte antigua de la ciudad con calles estrechas y ___.", blanks: ["histórico","monumentos"] },
+        { text: "El barrio ___ tiene calles anchas y edificios ___.", blanks: ["moderno","altos"] },
+        { text: "Usar el ___ público ayuda a reducir los ___ de tráfico.", blanks: ["transporte","atascos"] }
+      ]
+    }
+  },
+  lc: {
+    sentences: {
+      en: [
+        { text: "Every municipality has a local ___ that governs it.", blanks: ["council"] },
+        { text: "The head of the local council is the ___.", blanks: ["mayor"] },
+        { text: "Citizens vote every ___ years to elect the councillors and the mayor.", blanks: ["four"] }
+      ],
+      es: [
+        { text: "Cada municipio tiene un ___ que lo gobierna.", blanks: ["ayuntamiento"] },
+        { text: "El jefe del ayuntamiento se llama ___.", blanks: ["alcalde"] },
+        { text: "Los ciudadanos votan cada ___ años para elegir a los concejales y al alcalde.", blanks: ["cuatro"] }
+      ]
+    }
+  },
+  ls: {
+    sentences: {
+      en: [
+        { text: "Police and fire services keep the people ___.", blanks: ["safe"] },
+        { text: "Transport services provide ___ means of transport.", blanks: ["public"] },
+        { text: "Waste management services keep the city ___ and provide clean ___.", blanks: ["clean","water"] }
+      ],
+      es: [
+        { text: "La policía y los bomberos mantienen a las personas ___.", blanks: ["seguras"] },
+        { text: "Los servicios de transporte proporcionan medios de transporte ___.", blanks: ["públicos"] },
+        { text: "Los servicios de gestión de residuos mantienen la ciudad ___ y proporcionan agua ___.", blanks: ["limpia","potable"] }
+      ]
+    }
+  },
+  tx: {
+    sentences: {
+      en: [
+        { text: "The local council collects ___ to pay for local services.", blanks: ["taxes"] },
+        { text: "Citizens who own ___ pay property tax.", blanks: ["houses"] },
+        { text: "Road tax money is used to build and repair ___.", blanks: ["roads"] }
+      ],
+      es: [
+        { text: "El ayuntamiento recauda ___ para pagar los servicios locales.", blanks: ["impuestos"] },
+        { text: "Los ciudadanos que tienen ___ pagan el impuesto sobre bienes inmuebles.", blanks: ["casas"] },
+        { text: "El dinero del impuesto sobre vehículos se usa para construir y reparar ___.", blanks: ["carreteras"] }
+      ]
+    }
+  }
+};
+
+// ===========================
+// WORD SEARCH DATA
+// ===========================
+const wsWords = ['VILLAGE','MAYOR','COUNCIL','TAXES','POLICE','MUSEUM','SUBURB','TRANSPORT','ELECTION','SERVICES'];
+
+// Pre-built 12×12 grid with words placed
+const wsGrid = [
+  ['V','I','L','L','A','G','E','T','A','X','E','S'],
+  ['M','A','Y','O','R','S','L','R','P','W','Q','U'],
+  ['C','O','U','N','C','I','L','A','O','X','K','B'],
+  ['E','L','E','C','T','I','O','N','L','M','N','U'],
+  ['S','E','R','V','I','C','E','S','I','U','O','R'],
+  ['P','O','L','I','C','E','F','P','C','S','H','B'],
+  ['T','R','A','N','S','P','O','R','T','E','J','Q'],
+  ['M','U','S','E','U','M','K','L','A','U','D','Z'],
+  ['W','X','Y','Z','A','B','C','D','E','F','G','H'],
+  ['I','J','K','L','M','N','O','P','Q','R','S','T'],
+  ['U','V','W','X','Y','Z','A','B','C','D','E','F'],
+  ['G','H','I','J','K','L','M','N','O','P','Q','R']
+];
+
+// Exact positions of words in the grid: {word: [{r,c},...]}
+const wsWordPositions = {
+  VILLAGE:   [{r:0,c:0},{r:0,c:1},{r:0,c:2},{r:0,c:3},{r:0,c:4},{r:0,c:5},{r:0,c:6}],
+  TAXES:     [{r:0,c:7},{r:0,c:8},{r:0,c:9},{r:0,c:10},{r:0,c:11}],
+  MAYOR:     [{r:1,c:0},{r:1,c:1},{r:1,c:2},{r:1,c:3},{r:1,c:4}],
+  COUNCIL:   [{r:2,c:0},{r:2,c:1},{r:2,c:2},{r:2,c:3},{r:2,c:4},{r:2,c:5},{r:2,c:6}],
+  ELECTION:  [{r:3,c:0},{r:3,c:1},{r:3,c:2},{r:3,c:3},{r:3,c:4},{r:3,c:5},{r:3,c:6},{r:3,c:7}],
+  SERVICES:  [{r:4,c:0},{r:4,c:1},{r:4,c:2},{r:4,c:3},{r:4,c:4},{r:4,c:5},{r:4,c:6},{r:4,c:7}],
+  POLICE:    [{r:5,c:0},{r:5,c:1},{r:5,c:2},{r:5,c:3},{r:5,c:4},{r:5,c:5}],
+  TRANSPORT: [{r:6,c:0},{r:6,c:1},{r:6,c:2},{r:6,c:3},{r:6,c:4},{r:6,c:5},{r:6,c:6},{r:6,c:7},{r:6,c:8}],
+  MUSEUM:    [{r:7,c:0},{r:7,c:1},{r:7,c:2},{r:7,c:3},{r:7,c:4},{r:7,c:5}],
+  SUBURB:    [{r:1,c:5},{r:1,c:6},{r:2,c:7},{r:2,c:8},{r:2,c:9},{r:2,c:10}]
+};
+
+// ===========================
+// QUIZ SYSTEM
+// ===========================
+let quizState = {};
+function initQuiz(key, containerId) {
+  quizState[key] = { idx: 0, score: 0, done: false };
+  renderQuestion(key, containerId);
+}
+function renderQuestion(key, containerId) {
+  const qs = quizData[key];
+  const st = quizState[key];
+  if (st.idx >= qs.length) {
+    document.getElementById(containerId).innerHTML = `<div style="text-align:center;padding:16px;"><div style="font-size:2rem">🎉</div><div style="font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--green)">${lang==='en'?'Section complete!':'¡Sección completada!'} ${st.score}/${qs.length}</div></div>`;
+    addScore(st.score * 10);
+    return;
+  }
+  const q = qs[st.idx];
+  const opts = q.opts[lang];
+  const qtext = q[lang];
+  const progress = Math.round(((st.idx)/qs.length)*100);
+  document.getElementById(containerId).innerHTML = `
+    <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div></div>
+    <div class="quiz-question">${st.idx+1}/${qs.length} — ${qtext}</div>
+    <div class="quiz-options">
+      ${opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz('${key}','${containerId}',${i})">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="qfb_${key}"></div>
+    <button class="next-btn" id="qnext_${key}" onclick="nextQuestion('${key}','${containerId}')">${lang==='en'?'Next →':'Siguiente →'}</button>
+  `;
+}
+function answerQuiz(key, containerId, chosen) {
+  const st = quizState[key];
+  const q = quizData[key][st.idx];
+  const opts = document.querySelectorAll(`#${containerId} .quiz-opt`);
+  opts.forEach(b => b.disabled = true);
+  const fb = document.getElementById(`qfb_${key}`);
+  if (chosen === q.ans) {
+    opts[chosen].classList.add('correct');
+    fb.textContent = lang==='en' ? '✅ Correct! Well done!' : '✅ ¡Correcto! ¡Muy bien!';
+    fb.className = 'quiz-feedback ok';
+    st.score++;
+    showFeedback(true);
+  } else {
+    opts[chosen].classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+    fb.textContent = (lang==='en' ? '❌ Not quite. The answer is: ' : '❌ No exactamente. La respuesta es: ') + q.opts[lang][q.ans];
+    fb.className = 'quiz-feedback ko';
+    showFeedback(false);
+  }
+  document.getElementById(`qnext_${key}`).classList.add('show');
+}
+function nextQuestion(key, containerId) {
+  quizState[key].idx++;
+  renderQuestion(key, containerId);
+}
+
+// ===========================
+// DRAG & DROP
+// ===========================
+function initDrag(key) {
+  const d = dragData[key];
+  const items = d.items[lang];
+  const zones = d.zones[lang];
+  dragState[key] = { placed: {} }; // item index -> zone index
+
+  // Render chips
+  const itemsEl = document.getElementById(`${key}DragItems`);
+  itemsEl.innerHTML = items.map((item, i) =>
+    `<div class="drag-chip" id="dc_${key}_${i}" draggable="true" 
+      ondragstart="onDragStart(event,'${key}',${i})"
+      onclick="onChipClick('${key}',${i})"
+    >${item}</div>`
+  ).join('');
+
+  // Render zones
+  const zonesEl = document.getElementById(`${key}DragZones`);
+  zonesEl.style.gridTemplateColumns = zones.length <= 2 ? '1fr 1fr' : zones.length <= 4 ? '1fr 1fr' : '1fr 1fr 1fr';
+  zonesEl.innerHTML = zones.map((zone, zi) => `
+    <div class="drag-zone" id="dz_${key}_${zi}"
+      ondragover="onDragOver(event)"
+      ondragleave="onDragLeave(event)"
+      ondrop="onDrop(event,'${key}',${zi})"
+    >
+      <div class="drag-zone-label">${zone}</div>
+      <div class="drag-zone-content" id="dzc_${key}_${zi}"></div>
+    </div>
+  `).join('');
+
+  document.getElementById(`${key}DragFeedback`).textContent = '';
+  const zones2 = document.querySelectorAll(`#${key}DragZones .drag-zone`);
+  zones2.forEach(z => z.classList.remove('correct-zone','wrong-zone'));
+}
+
+let draggingKey = null, draggingIdx = null;
+function onDragStart(e, key, idx) {
+  draggingKey = key; draggingIdx = idx;
+  e.dataTransfer.effectAllowed = 'move';
+}
+function onDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('over'); }
+function onDragLeave(e) { e.currentTarget.classList.remove('over'); }
+function onDrop(e, key, zoneIdx) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('over');
+  if (draggingKey !== key) return;
+  placeChip(key, draggingIdx, zoneIdx);
+}
+
+// Click-to-place for mobile
+let clickSelected = {};
+function onChipClick(key, idx) {
+  // If already placed, remove from zone
+  if (dragState[key].placed[idx] !== undefined) {
+    removeFromZone(key, idx);
+    return;
+  }
+  if (clickSelected[key] === idx) {
+    clickSelected[key] = null;
+    document.getElementById(`dc_${key}_${idx}`).style.outline = '';
+    return;
+  }
+  // deselect prev
+  if (clickSelected[key] != null) {
+    const prev = clickSelected[key];
+    document.getElementById(`dc_${key}_${prev}`).style.outline = '';
+  }
+  clickSelected[key] = idx;
+  document.getElementById(`dc_${key}_${idx}`).style.outline = '3px solid var(--orange)';
+}
+
+function onZoneClick(key, zoneIdx) {
+  if (clickSelected[key] == null) return;
+  const idx = clickSelected[key];
+  document.getElementById(`dc_${key}_${idx}`).style.outline = '';
+  clickSelected[key] = null;
+  placeChip(key, idx, zoneIdx);
+}
+
+// Also make zones clickable for tap-to-place
+document.addEventListener('DOMContentLoaded', () => {});
+
+function placeChip(key, itemIdx, zoneIdx) {
+  const d = dragData[key];
+  const itemLabel = d.items[lang][itemIdx];
+  // Remove from previous zone if any
+  if (dragState[key].placed[itemIdx] !== undefined) {
+    removeFromZone(key, itemIdx);
+  }
+  dragState[key].placed[itemIdx] = zoneIdx;
+  // Mark chip as used
+  const chip = document.getElementById(`dc_${key}_${itemIdx}`);
+  if (chip) chip.classList.add('used');
+  // Add to zone
+  const zoneContent = document.getElementById(`dzc_${key}_${zoneIdx}`);
+  const dropped = document.createElement('div');
+  dropped.className = 'dropped-chip';
+  dropped.id = `dropped_${key}_${itemIdx}`;
+  dropped.innerHTML = `${itemLabel} <span class="remove" onclick="removeFromZone('${key}',${itemIdx})">×</span>`;
+  zoneContent.appendChild(dropped);
+}
+
+function removeFromZone(key, itemIdx) {
+  const chip = document.getElementById(`dc_${key}_${itemIdx}`);
+  if (chip) chip.classList.remove('used');
+  const dropped = document.getElementById(`dropped_${key}_${itemIdx}`);
+  if (dropped) dropped.remove();
+  delete dragState[key].placed[itemIdx];
+}
+
+function checkDrag(key) {
+  const d = dragData[key];
+  const placed = dragState[key].placed;
+  const zones = document.querySelectorAll(`[id^="dz_${key}_"]`);
+  zones.forEach(z => z.classList.remove('correct-zone','wrong-zone'));
+  let correct = 0, total = Object.keys(d.answers).length;
+  for (let i = 0; i < total; i++) {
+    if (placed[i] !== undefined && placed[i] === d.answers[i]) correct++;
+  }
+  const fb = document.getElementById(`${key}DragFeedback`);
+  if (correct === total) {
+    fb.textContent = (lang==='en'?'✅ Perfect! All correct!':'✅ ¡Perfecto! ¡Todo correcto!');
+    fb.className = 'quiz-feedback ok';
+    addScore(15);
+    showFeedback(true);
+    zones.forEach(z => z.classList.add('correct-zone'));
+  } else {
+    fb.textContent = `${correct}/${total} ${lang==='en'?'correct. Try again!':'correcto. ¡Inténtalo de nuevo!'}`;
+    fb.className = 'quiz-feedback ko';
+    showFeedback(false);
+  }
+}
+
+// ===========================
+// FILL IN THE BLANKS
+// ===========================
+function initFill(key, containerId) {
+  const data = fillData[key].sentences[lang];
+  let html = '';
+  data.forEach((sent, si) => {
+    let text = sent.text;
+    let bi = 0;
+    text = text.replace(/___/g, () => {
+      const id = `fill_${key}_${si}_${bi++}`;
+      return `<input class="fill-blank" id="${id}" type="text" placeholder="...">`;
+    });
+    html += `<div class="fill-sentence" style="margin-bottom:16px">${text}</div>`;
+  });
+  document.getElementById(containerId).innerHTML = html;
+  document.getElementById(`${key}FillFeedback`).textContent = '';
+}
+
+function checkFill(key) {
+  const data = fillData[key].sentences[lang];
+  let correct = 0, total = 0;
+  data.forEach((sent, si) => {
+    sent.blanks.forEach((answer, bi) => {
+      total++;
+      const input = document.getElementById(`fill_${key}_${si}_${bi}`);
+      if (!input) return;
+      const val = input.value.trim().toLowerCase();
+      const ans = answer.toLowerCase();
+      input.classList.remove('correct-fill','wrong-fill');
+      if (val === ans || val === ans.replace(/[áéíóú]/g, c => ({'á':'a','é':'e','í':'i','ó':'o','ú':'u'}[c]||c))) {
+        input.classList.add('correct-fill');
+        correct++;
+      } else {
+        input.classList.add('wrong-fill');
+        input.placeholder = answer;
+      }
+    });
+  });
+  const fb = document.getElementById(`${key}FillFeedback`);
+  if (correct === total) {
+    fb.textContent = lang==='en'?'✅ All correct! Great job!':'✅ ¡Todo correcto! ¡Muy bien!';
+    fb.className = 'quiz-feedback ok';
+    addScore(12);
+    showFeedback(true);
+  } else {
+    fb.textContent = `${correct}/${total} ${lang==='en'?'correct. Check the red ones!':'correctas. ¡Revisa las rojas!'}`;
+    fb.className = 'quiz-feedback ko';
+    showFeedback(false);
+  }
+}
+
+// ===========================
+// WORD SEARCH
+// ===========================
+function initWordSearch() {
+  const grid = document.getElementById('wordGrid');
+  const rows = wsGrid.length, cols = wsGrid[0].length;
+  grid.style.gridTemplateColumns = `repeat(${cols}, 34px)`;
+  grid.innerHTML = '';
+  wsSelecting = false; wsFirst = null; wsFoundWords = new Set();
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'ws-cell';
+      cell.textContent = wsGrid[r][c];
+      cell.dataset.r = r; cell.dataset.c = c;
+      cell.onclick = () => wsClick(r, c, cell);
+      grid.appendChild(cell);
+    }
+  }
+
+  // Word list
+  const list = document.getElementById('wsWordList');
+  list.innerHTML = wsWords.map(w => `<div class="ws-word" id="wsw_${w}">${w}</div>`).join('');
+  document.getElementById('wsFeedback').textContent = '';
+}
+
+let wsFirstCell = null;
+function wsClick(r, c, cell) {
+  if (!wsFirst) {
+    wsFirst = { r, c, cell };
+    cell.classList.add('selected');
+  } else {
+    // Try to match a word on the selection range
+    const { r: r1, c: c1 } = wsFirst;
+    wsFirst.cell.classList.remove('selected');
+    wsFirst = null;
+    cell.classList.remove('selected');
+    // Check all words
+    for (const word of wsWords) {
+      if (wsFoundWords.has(word)) continue;
+      const pos = wsWordPositions[word];
+      if (!pos) continue;
+      const first = pos[0], last = pos[pos.length-1];
+      if ((first.r===r1 && first.c===c1 && last.r===r && last.c===c) ||
+          (last.r===r1 && last.c===c1 && first.r===r && first.c===c)) {
+        // Mark found
+        wsFoundWords.add(word);
+        pos.forEach(p => {
+          const el = document.querySelector(`.ws-cell[data-r="${p.r}"][data-c="${p.c}"]`);
+          if (el) { el.classList.remove('selected'); el.classList.add('found'); }
+        });
+        document.getElementById(`wsw_${word}`).classList.add('found-word');
+        addScore(8);
+        showFeedback(true);
+        if (wsFoundWords.size === wsWords.length) {
+          document.getElementById('wsFeedback').textContent = lang==='en'?'🎉 You found all the words!':'🎉 ¡Encontraste todas las palabras!';
+          document.getElementById('wsFeedback').className = 'quiz-feedback ok';
+        }
+        return;
+      }
+    }
+    // No match: deselect
+    document.querySelectorAll('.ws-cell.selected').forEach(el => el.classList.remove('selected'));
+  }
+}
+
+// ===========================
+// SCORE & FEEDBACK
+// ===========================
+function addScore(pts) {
+  totalScore += pts;
+  document.getElementById('totalScore').textContent = totalScore;
+  updateStars();
+}
+function updateStars() {
+  const s = Math.min(5, Math.floor(totalScore / 50));
+  document.getElementById('starsDisplay').textContent = '⭐'.repeat(s) + '☆'.repeat(5-s);
+}
+function showFeedback(isCorrect) {
+  const popup = document.getElementById('feedbackPopup');
+  const emoji = document.getElementById('feedbackEmoji');
+  const msg = document.getElementById('feedbackMsg');
+  const pts = document.getElementById('feedbackPts');
+  if (isCorrect) {
+    const emojis = ['🌟','🎉','✨','🏆','👏','🎊'];
+    emoji.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    msg.textContent = lang==='en' ? ['Excellent!','Brilliant!','Amazing!','Super!','Perfect!'][Math.floor(Math.random()*5)] : ['¡Excelente!','¡Brillante!','¡Increíble!','¡Súper!','¡Perfecto!'][Math.floor(Math.random()*5)];
+    msg.style.color = 'var(--green)';
+    pts.textContent = '+points';
+  } else {
+    emoji.textContent = '💪';
+    msg.textContent = lang==='en' ? 'Keep trying!' : '¡Sigue intentándolo!';
+    msg.style.color = 'var(--orange)';
+    pts.textContent = lang==='en' ? 'You can do it!' : '¡Tú puedes!';
+  }
+  popup.classList.add('show');
+  setTimeout(() => popup.classList.remove('show'), 1800);
+}
+function resetAll() {
+  totalScore = 0;
+  document.getElementById('totalScore').textContent = '0';
+  document.getElementById('starsDisplay').textContent = '☆☆☆☆☆';
+  initAll();
+}
+
+// ===========================
+// LANGUAGE
+// ===========================
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach((b,i) => b.classList.toggle('active', (i===0&&l==='en')||(i===1&&l==='es')));
+  // Update all tl elements
+  document.querySelectorAll('.tl').forEach(el => {
+    if (el.dataset[l]) el.innerHTML = el.dataset[l];
+  });
+  document.getElementById('hTitle').textContent = l==='en'?'We Improve Our Community':'Mejoramos nuestra comunidad';
+  document.getElementById('hSub').textContent = l==='en'?'Unit 4 · Social Science · 3rd Grade':'Unidad 4 · Ciencias Sociales · 3º Primaria';
+  document.getElementById('ptsLabel').textContent = l==='en'?'points':'puntos';
+  initAll();
+}
+
+// ===========================
+// TABS
+// ===========================
+function showSection(idx) {
+  document.querySelectorAll('.section-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+}
+
+// ===========================
+// INIT ALL
+// ===========================
+function initAll() {
+  initQuiz('v', 'v_quiz_container');
+  initQuiz('c', 'c_quiz_container');
+  initQuiz('lc', 'lc_quiz_container');
+  initQuiz('ls', 'ls_quiz_container');
+  initQuiz('tx', 'tx_quiz_container');
+
+  initDrag('v'); initDrag('c'); initDrag('lc'); initDrag('ls'); initDrag('tx');
+
+  initFill('v', 'vFillContainer');
+  initFill('c', 'cFillContainer');
+  initFill('lc', 'lcFillContainer');
+  initFill('ls', 'lsFillContainer');
+  initFill('tx', 'txFillContainer');
+
+  // Make drag zones clickable
+  document.querySelectorAll('.drag-zone').forEach(zone => {
+    const parts = zone.id.split('_');
+    const k = parts[1], zi = parseInt(parts[2]);
+    zone.onclick = (e) => {
+      if (e.target.classList.contains('remove')) return;
+      onZoneClick(k, zi);
+    };
+  });
+
+  initWordSearch();
+}
+
+initAll();
+</script>
+</body>
+</html>
